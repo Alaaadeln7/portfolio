@@ -1,0 +1,30 @@
+@use '../../style/mixins' as *;
+$scoundry-color: #22A699;
+$primary-color: #0079FF;
+$light-primary-color: #30A2FF;
+$light-color: #fff;
+$dark-color: #2c2c2c;
+$paragraph-color: #595959;
+$transition: all .3s ease;
+
+nav {
+
+
+  ul {
+    li {
+      display: inline-block;
+      margin: 10px;
+
+      a {
+        text-decoration: none;
+        color: $dark-color;
+        font-style: italic;
+        transition: $transition;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}

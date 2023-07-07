@@ -1,0 +1,147 @@
+@use '../../style/mixins' as *;
+$scoundry-color: #22A699;
+$primary-color: #0079FF;
+$light-primary-color: #30A2FF;
+$light-color: #fff;
+$dark-color: #2c2c2c;
+$paragraph-color: #595959;
+$transition: all .3s linear;
+
+.home {
+  margin-top: 5%;
+  width: 100%;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+
+
+  &:after {
+    content: '';
+    width: 100em;
+    height: 100em;
+    background-color: $primary-color;
+    border-radius: 50%;
+    position: fixed;
+    top: -135%;
+    left: -20%;
+    z-index: -1;
+    animation: up-and-down 6s linear infinite alternate;
+  }
+
+  @media (max-width:768px) {
+    &::after {
+      width: 30rem;
+      height: 30rem;
+      top: -30%;
+      left: -40%
+    }
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .content {
+      @include center;
+      flex-direction: column;
+      flex-wrap: wrap;
+      width: 100%;
+      height: 100%;
+
+      .text {
+        @include center;
+        flex-direction: column;
+        gap: 10px;
+
+        h1 {
+          color: $dark-color;
+          margin: 2px;
+        }
+
+        p {
+          @include p;
+          font-size: 16px;
+        }
+
+        .social-media {
+          h4 {
+            color: $scoundry-color;
+            font-style: italic;
+            text-align: center;
+          }
+
+          ul {
+            li {
+              display: inline-block;
+              margin: 10px;
+
+              a,
+              button {
+                border: none;
+                outline: none;
+                background-color: transparent;
+                color: $dark-color;
+                font-size: 20px;
+                @include circle(30px);
+                padding: 5px;
+                cursor: pointer;
+                transition: $transition;
+
+                &:hover {
+                  background-image: linear-gradient(to bottom, $primary-color, $scoundry-color 50%);
+                  color: $light-color;
+                }
+              }
+            }
+
+            @media (max-width:768px) {
+              li {
+                margin: 5px;
+
+                a {
+                  padding: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .img {
+        max-width: 200px;
+        border-radius: 50%;
+        align-self: center;
+
+        img {
+          width: 100%;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes up-and-down {
+  25% {
+    transform: translateY(-10px);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+
+  75% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(10px);
+  }
+}

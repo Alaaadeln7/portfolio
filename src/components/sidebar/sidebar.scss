@@ -1,0 +1,116 @@
+@use '../../style/mixins' as *;
+$scoundry-color: #22A699;
+$primary-color: #0079FF;
+$light-primary-color: #30A2FF;
+$light-color: #fff;
+$dark-color: #2c2c2c;
+$paragraph-color: #595959;
+$transition: all .3s ease;
+@use '../../style/global-rouls' as *;
+
+body {
+  background-color: $light-color;
+  color: $dark-color;
+}
+
+body.dark-mode {
+  background: $dark-color;
+  color: $light-color;
+}
+
+aside {
+  max-width: 250px;
+  height: fit-content;
+  // padding: 10px;
+  background-color: $dark-color;
+  color: $light-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+  transition: $transition;
+
+  &.miny-side-bar {
+    width: 70px;
+
+    @media (max-width:768px) {
+      transform: translateX(-70px);
+
+    }
+  }
+
+  .container {
+    width: fit-content;
+    margin: 10px 0;
+
+    nav {
+      ul {
+        li {
+          margin: 10px;
+          width: fit-content;
+
+          a {
+            padding: 5px 0;
+            font-size: 18px;
+            display: flex;
+            color: $light-color;
+            gap: 10px;
+            transition: $transition;
+
+            &:hover {
+              color: $scoundry-color;
+            }
+
+            svg {
+              font-size: 22px;
+            }
+          }
+        }
+      }
+    }
+
+    .logo {
+      h2 {
+        a {
+          color: $light-color;
+          transition: $transition;
+
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+
+      .back {
+        position: absolute;
+        background: none;
+        right: 0;
+        border: none;
+        cursor: pointer;
+        background-color: $scoundry-color;
+        border: 1px solid $light-color;
+        border-radius: 50%;
+        @include circle(50px);
+        padding: 10px;
+        font-size: 20px;
+        margin: auto -32px;
+        transition: $transition;
+      }
+    }
+
+    .setting {
+      margin: 3% 0;
+
+      button {
+        background-color: $primary-color;
+        color: $light-color;
+        padding: 5px;
+        margin: 5px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        font-size: 15px;
+      }
+    }
+  }
+}

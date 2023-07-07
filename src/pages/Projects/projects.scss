@@ -1,0 +1,124 @@
+@use '../../style/mixins' as *;
+$scoundry-color: #22A699;
+$primary-color: #0079FF;
+$light-primary-color: #30A2FF;
+$light-color: #fff;
+$dark-color: #2c2c2c;
+$paragraph-color: #595959;
+$transition: all .3s ease;
+$html-color: #e34c26;
+$bg-html-color: #e34c262c;
+$css-color: #2965f1;
+$bg-css-color: #2965f12e;
+
+$scss-color: #f000a0;
+$bg-scss-color: #f7047d2e;
+$js-color: #fad902;
+$bg-js-color: #f0da4f38;
+$react-color: #3dc4e5;
+$bg-react-color: #3dc3e51b;
+$redux-color: #764adc;
+$bg-redux-color: #764adc56;
+
+.html {
+  padding: 5px;
+  border-radius: 5px;
+  color: $html-color;
+  background: $bg-html-color;
+}
+
+.css {
+  padding: 5px;
+  border-radius: 5px;
+  color: $css-color;
+  background: $bg-css-color;
+}
+
+.scss {
+  padding: 5px;
+  border-radius: 5px;
+  color: $scss-color;
+  background: $bg-scss-color;
+}
+
+.js {
+  padding: 5px;
+  border-radius: 5px;
+  color: $js-color;
+  background: $bg-js-color;
+}
+
+.react {
+  padding: 5px;
+  border-radius: 5px;
+  color: $react-color;
+  background: $bg-react-color;
+}
+
+.redux {
+  padding: 5px;
+  border-radius: 5px;
+  color: $redux-color;
+  background: $bg-redux-color;
+}
+
+.projects {
+  margin: 5% 0;
+
+  .container {
+    @include center;
+    flex-direction: column;
+
+    .header-projects {
+      .stars {
+        @include space-around-center;
+
+        span {
+          font-size: 18px;
+          color: $js-color;
+        }
+      }
+
+      h2 {
+        margin: 2% 0;
+        color: $light-color;
+        border-radius: 5px;
+        background-image: linear-gradient(to left, $primary-color, $scoundry-color 80%);
+        padding: 5px;
+        position: relative;
+
+        &::after {
+          content: '';
+          width: 100px;
+          height: 30px;
+          position: absolute;
+          top: 6%;
+          left: -20%;
+          background-color: $primary-color;
+          transform: skew(-40deg);
+          z-index: -1;
+        }
+
+        &::before {
+          content: '';
+          width: 100px;
+          height: 30px;
+          position: absolute;
+          top: 6%;
+          right: -20%;
+          background-color: $primary-color;
+          transform: skew(40deg);
+          z-index: -1;
+        }
+      }
+    }
+
+
+    .content {
+      margin-top: 3%;
+      @include space-around-center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+  }
+}

@@ -1,0 +1,213 @@
+@use '../../style/mixins' as *;
+$scoundry-color: #22A699;
+$primary-color: #0079FF;
+$light-primary-color: #30A2FF;
+$light-color: #fff;
+$dark-color: #2c2c2c;
+$paragraph-color: #595959;
+$transition: all .3s ease;
+$js-color: #fad902;
+
+.about {
+  margin-top: 5%;
+  height: 100%;
+
+  .container {
+    @include center;
+    flex-direction: column;
+
+    .header-about {
+      margin: 3% 0;
+
+      .stars {
+        @include space-around-center;
+
+        span {
+          font-size: 18px;
+          color: $js-color;
+        }
+      }
+
+      h2 {
+        margin: 2% 0;
+        color: $light-color;
+        border-radius: 5px;
+        background-image: linear-gradient(to left, $primary-color, $scoundry-color 80%);
+        padding: 5px;
+        position: relative;
+
+        &::after {
+          content: '';
+          width: 100px;
+          height: 30px;
+          position: absolute;
+          top: 6%;
+          left: -20%;
+          background-color: $primary-color;
+          transform: skew(-40deg);
+          z-index: -1;
+        }
+
+        &::before {
+          content: '';
+          width: 100px;
+          height: 30px;
+          position: absolute;
+          top: 6%;
+          right: -20%;
+          background-color: $primary-color;
+          transform: skew(40deg);
+          z-index: -1;
+        }
+      }
+    }
+
+    .content {
+
+      width: 100%;
+      @include space-around-center;
+      flex-wrap: wrap;
+
+      @media (max-width:768px) {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .text {
+        max-width: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+
+        @media (max-width:768px) {
+          max-width: 100%;
+
+          h1 {
+            font-size: 22px
+          }
+        }
+
+        p {
+          @include p;
+          color: $paragraph-color;
+        }
+
+        span.title {
+          position: relative;
+
+          &::before {
+            content: '';
+            @include same-w-h(12px);
+            border-radius: 2px;
+            background: $primary-color;
+            position: absolute;
+            top: 2px;
+            left: -20px;
+            transform: rotate(45deg);
+          }
+        }
+
+        .info-for-me {
+          width: 100%;
+          background-color: #eee;
+          border-radius: 5px;
+          padding: 10px;
+
+          h4 {
+            margin-bottom: 2%;
+            font-style: italic;
+          }
+
+          div {
+            p {
+              span {
+                color: $primary-color;
+              }
+            }
+          }
+        }
+
+        .links {
+          margin-top: 3%;
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+          width: 100%;
+
+          button,
+          a {
+            @include btn;
+            width: 100%;
+            height: 40px;
+            font-size: 17px;
+            font-style: italic;
+            @include center;
+          }
+        }
+      }
+
+      .img {
+        max-width: 40%;
+        position: relative;
+        border: 5px dashed $primary-color;
+        padding: 10px;
+        border-radius: 10px;
+
+        @media (max-width:768px) {
+          max-width: 100%;
+          margin: 10px 0;
+        }
+
+        img {
+          width: 100%;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+}
+
+.skills {
+  margin-top: 5%;
+
+  .container {
+
+    .contain-lines {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .line {
+        max-width: 100%;
+        margin: 10px;
+
+        .text {
+          width: 100%;
+          @include space-between-center;
+        }
+
+        .progress {
+          width: 100%;
+          height: 20px;
+          border-radius: 5px;
+          margin: 10px 0;
+          background-color: #ddd;
+          position: relative;
+
+          span {
+            position: absolute;
+            z-index: 99999;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: $primary-color;
+            transition: .8s;
+          }
+        }
+      }
+    }
+  }
+}

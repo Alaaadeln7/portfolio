@@ -1,0 +1,51 @@
+@use '../../style/mixins' as *;
+$scoundry-color: #22A699;
+$primary-color: #0079FF;
+$light-primary-color: #30A2FF;
+$light-color: #fff;
+$dark-color: #2c2c2c;
+$paragraph-color: #595959;
+$transition: all .3s ease;
+
+.project {
+  max-width: 250px;
+  padding: 12px;
+  border: 1px solid $paragraph-color;
+  border-radius: 5px;
+
+  .img {
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  p {
+    @include p
+  }
+
+  .thech {
+    margin: 5px;
+    max-width: 100px;
+    display: flex;
+    gap: 10px;
+  }
+
+  .project-link {
+    margin-top: 5%;
+
+    a {
+      // @include btn;
+      margin: 0 2%;
+      font-size: 15px;
+      cursor: pointer;
+      width: 100px;
+      height: 30px;
+      background-color: $primary-color;
+      color: $light-color;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  }
+}

@@ -1,0 +1,133 @@
+@use '../../style/mixins' as *;
+$scoundry-color: #22A699;
+$primary-color: #0079FF;
+$light-primary-color: #30A2FF;
+$light-color: #fff;
+$dark-color: #2c2c2c;
+$paragraph-color: #595959;
+$transition: all .3s linear;
+
+.contact {
+  overflow: hidden;
+  width: 100%;
+
+  .declartion {
+    padding: 10px;
+    border-top: 2px solid $scoundry-color;
+    box-shadow: 0 0 4px 4px #eee;
+    position: absolute;
+    top: 10%;
+    right: 0;
+    z-index: 99999;
+    opacity: 0;
+    transition: $transition;
+  }
+
+  .container {
+    .content {
+      margin-top: 6%;
+      @include space-around-center;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      @media (max-width:768px) {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .text {
+        max-width: 40%;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+
+        @media (max-width:768px) {
+          max-width: 100%;
+
+          h1 {
+            font-size: 22px;
+          }
+        }
+
+        .contact-info {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          flex-direction: column;
+
+          .number,
+          .location,
+          .email {
+            @include center;
+            gap: 10px;
+
+            span {
+              font-size: 20px;
+              color: $primary-color;
+            }
+
+            a {
+              color: $paragraph-color;
+              text-decoration: underline;
+              font-size: 17px;
+            }
+
+            p {
+              @include p;
+              font-size: 17px;
+            }
+
+            .phones {
+              display: flex;
+              flex-direction: column;
+              gap: 5px;
+            }
+          }
+        }
+      }
+
+      @media (max-width:768px) {
+        .form {
+          max-width: 100%;
+        }
+      }
+
+      .form {
+        max-width: 60%;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+
+
+        form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          input,
+          textarea {
+            border: none;
+            outline: none;
+            width: 100%;
+            border-bottom: 1px solid $scoundry-color;
+            padding: 10px;
+            color: $paragraph-color;
+
+          }
+
+          button {
+            @include btn;
+            border: none;
+            outline: none;
+            background: $primary-color;
+            color: $light-color;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
